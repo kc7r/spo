@@ -1,0 +1,16 @@
+SPO Config License (your config, not Sandboxie)
+
+(c) 2026 Sohan. This SPO hardening config (SPO-Config.ini, [SPO] box settings) is my original work.
+
+Built on Sandboxie-Plus by David Xanatos (open source, Sophos). I do NOT own Sandboxie-Plus and I did not remove its authorship.
+
+You may:
+- Use this config for personal use.
+- Share or modify this config only if you keep this credit and contact visible.
+
+You may NOT:
+- Claim you made Sandboxie-Plus.
+- Sell Sandboxie-Plus itself or remove its name/copyright (see Sandboxie LICENSE.Plus 3.ii).
+
+Donate (optional, Binance UID): 1223548662
+Contact: GitHub kc7r

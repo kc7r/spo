@@ -1,0 +1,50 @@
+SPO - Tomar Onsho + Pitch (client ke ja bolba)
+
+1) AMAR ONSHO KONTA (legal, sotto)
+- Software amar na. Software: Sandboxie-Plus (Sophos + David Xanatos, open source).
+- Amar onsho: SPO hardening config + setup service.
+- Ami bechbo: setup/service, software na.
+- Config file: SPO-Config.ini ([SPO] box)
+- Real config location: C:\Windows\Sandboxie.ini -> [SPO]
+
+2) CLIENT KE FEATURE KI BOLBO (barano kotha na)
+1. No-Read privacy: Documents / Desktop / D:\pc ভেতর থেকে পড়া যায় না (UsePrivacyMode)
+2. No-Write escape: ভেতরে যা লিখবে real PC তে আসবে না, C:\Sandbox\sohan\SPO\... তে আটকায়
+3. Admin right drop + printer spooler close + clipboard off
+4. LAN share block (BlockNetworkFiles) + recovery prompt off (AutoRecover=n)
+5. Close = Clear: last process বন্ধ হলেই সব মুছে যায় (AutoDelete=y)
+6. Defender ভেতরেও দেখে (EICAR proof আছে)
+- Bolba NA: "VM লাগবে না", "kernel hack proof", "ami software banaisi" — egula mittha hobe.
+
+3) KI KI TEST PASS KORLAM (proof soho)
+T1 Write containment PASS
+- ভেতর থেকে Desktop\spo-write-test.txt লিখতে চাইলো
+- Real Desktop: False (আসে নাই)
+- Sandbox: C:\Sandbox\sohan\SPO\user\current\Desktop\spo-write-test.txt (আছে)
+
+T2 Read block PASS
+- Real Desktop e canary-spo.txt রাখা হলো
+- SPO ভেতর থেকে type করে পড়া যায় নাই
+
+T3 EICAR exact 68-byte PASS
+- ভেতর থেকে curl দিয়ে নামানো: eicar-exact2.com (68 byte exact)
+- Real Desktop: False
+- Sandbox: C:\Sandbox\sohan\SPO\user\current\Desktop\eicar-exact2.com
+- Defender: Virus:DOS/EICAR_Test_File, 17-09-2026 9:38 PM
+- File পড়তে গেলে বলে: contains a virus
+
+T4 Config verify PASS
+- SbieIni query *: GlobalSettings, DefaultBox, SPO
+- SPO: Enabled=y, ConfigLevel=10, BlockNetworkFiles=y, AutoRecover=n
+- SPO: UsePrivacyMode=y, DropAdminRights=y, ClosePrintSpooler=y, OpenClipboard=n
+- SPO: AutoDelete=y
+- Node v20.19.2 দিয়ে ini check: ALL TESTS PASSED
+
+4) CLIENT KE 2 MIN DEMO (ja dekhaba)
+1. SandMan খোলো -> lal SPO box দেখাও
+2. SPO তে Edge খুলে about:blank দেখাও (border লাল)
+3. ভেতর থেকে Desktop e file লিখে দেখাও real Desktop e আসে না, C:\Sandbox\... তে আছে
+4. Windows Security > Protection history > EICAR_Test_File দেখাও
+5. SandMan > SPO > Terminate All Programs -> folder clear দেখাও
+
+Service price idea: setup 200-300tk, dokan er sathe share.

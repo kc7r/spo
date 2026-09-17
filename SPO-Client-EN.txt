@@ -1,0 +1,33 @@
+SPO Secure Browsing Setup - User Guide
+
+What you received:
+A hardened Sandboxie-Plus box named SPO (red border) for safer browsing and testing unknown files.
+
+What it does:
+1. Blocks sandboxed apps from reading your Documents, Desktop and D:\pc.
+2. Blocks sandboxed apps from writing to your real system. Everything stays inside C:\Sandbox\sohan\SPO\...
+3. Drops admin rights, disables printer spooler access and clipboard access from sandbox.
+4. Blocks network shares and disables file recovery prompts.
+5. Auto-deletes contents when the last sandboxed program closes.
+6. Windows Defender still scans inside the sandbox.
+
+Verified tests (2026-09-17):
+- Write test: file written from inside SPO to Desktop did NOT appear on real Desktop. Found only in sandbox.
+- Read test: private desktop file could NOT be read from inside SPO.
+- EICAR standard test (68-byte harmless AV test file): downloaded inside SPO, stayed in sandbox, did NOT reach real Desktop. Detected by Defender as Virus:DOS/EICAR_Test_File.
+
+How to use:
+1. Open Sandboxie-Plus (SandMan). Find the red SPO box.
+2. To browse safely: right-click your browser > Run Sandboxed > SPO. Or in SandMan: SPO > Run > Web Browser. Check red border around the window.
+3. To test a file: right-click the file > Run Sandboxed > SPO.
+4. Download only when needed. Recovery prompt is off by design.
+5. When finished: in SandMan right-click SPO > Terminate All Programs. This clears the box.
+6. To confirm: real Desktop stays clean. Sandbox copies are under C:\Sandbox\sohan\SPO\...
+
+Important limits:
+- Use SPO for risky links and unknown files. Keep Windows Defender ON.
+- Keep Sandboxie-Plus updated.
+- SPO is an app sandbox, not a full virtual machine. It shares the Windows kernel. For suspected kernel-level malware, use a full VM.
+- Support: contact your setup provider for re-install or questions.
+- Setup by Sohan (SPO hardening config). Sandboxie-Plus by David Xanatos.
+- Happy with it? Donate (Binance UID): 1223548662

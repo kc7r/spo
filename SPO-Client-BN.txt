@@ -1,0 +1,33 @@
+SPO নিরাপদ ব্রাউজিং সেটআপ - ব্যবহার নির্দেশিকা
+
+আপনি যা পেলেন:
+অনিরাপদ লিংক ও অচেনা ফাইল নিরাপদে খোলার জন্য Sandboxie-Plus এ SPO নামে শক্ত সেটআপ (লাল বর্ডার)।
+
+এটা যা করে:
+1. ভেতরের প্রোগ্রাম আপনার Documents, Desktop ও D:\pc পড়তে পারে না।
+2. ভেতরে যা লেখে তা আসল PC তে আসে না। সব আটকে থাকে C:\Sandbox\sohan\SPO\... ভেতরে।
+3. Admin right বাদ দেয়, printer spooler ও clipboard বন্ধ রাখে।
+4. Network share বন্ধ, file recovery prompt বন্ধ।
+5. শেষ প্রোগ্রাম বন্ধ হলে ভেতরের সব মুছে যায়।
+6. Windows Defender ভেতরেও স্ক্যান করে।
+
+যাচাই করা টেস্ট (2026-09-17):
+- Write test: ভেতর থেকে Desktop এ লিখতে চাইলেও আসল Desktop এ আসে নাই। শুধু sandbox এ পাওয়া গেছে।
+- Read test: আসল Desktop এর ফাইল ভেতর থেকে পড়া যায় নাই।
+- EICAR স্ট্যান্ডার্ড টেস্ট (68-byte ক্ষতিহীন AV টেস্ট ফাইল): SPO এর ভেতরে নামানো হয়েছে, sandbox এই ছিল, আসল Desktop এ আসে নাই। Defender ধরেছে: Virus:DOS/EICAR_Test_File।
+
+কীভাবে ব্যবহার করবেন:
+1. Sandboxie-Plus (SandMan) খুলুন। লাল SPO বক্স খুঁজুন।
+2. নিরাপদে ব্রাউজ করতে: browser এ right-click > Run Sandboxed > SPO। অথবা SandMan এ: SPO > Run > Web Browser। জানালায় লাল বর্ডার দেখুন।
+3. ফাইল টেস্ট করতে: ফাইলে right-click > Run Sandboxed > SPO।
+4. দরকার ছাড়া download করবেন না। Recovery prompt ইচ্ছা করে বন্ধ রাখা।
+5. শেষ হলে: SandMan এ SPO তে right-click > Terminate All Programs। এতে বক্স পরিষ্কার হবে।
+6. নিশ্চিত হতে: আসল Desktop পরিষ্কার থাকবে। Sandbox কপি থাকবে C:\Sandbox\sohan\SPO\... তে।
+
+জরুরি সীমা:
+- ঝুঁকির লিংক ও অচেনা ফাইলে SPO ব্যবহার করুন। Windows Defender ON রাখুন।
+- Sandboxie-Plus আপডেট রাখুন।
+- SPO অ্যাপ sandbox, পুরো virtual machine না। Windows kernel শেয়ার করে। Kernel-level সন্দেহ হলে পুরো VM ব্যবহার করুন।
+- সাহায্য: সেটআপ দিয়েছে যিনি তার সাথে যোগাযোগ করুন।
+- সেটআপ: Sohan (SPO hardening config)। Sandboxie-Plus: David Xanatos।
+- খুশি হলে ডোনেট (Binance UID): 1223548662
